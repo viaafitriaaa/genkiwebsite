@@ -14,7 +14,7 @@ class Bundle extends Model
         'image',
         'student_only'
     ];
-
+    
     public function products()
     {
         return $this->belongsToMany(Product::class, 'bundle_product')

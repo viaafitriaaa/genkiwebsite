@@ -209,7 +209,7 @@ class OrderController extends Controller
     public function completeView(Order $order)
     {
         $order->load('payment');
-        return view('order.complate', compact('order'));
+        return view('order.complete', compact('order'));
     }
 
 }

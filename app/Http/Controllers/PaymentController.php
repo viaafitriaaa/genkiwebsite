@@ -95,13 +95,14 @@ class PaymentController extends Controller
 
         $order = Order::where('id', $orderId)->first();
 
+        if (!$order) {
+            return response()->json(['message' => 'Order not found'], 404);
+        }
+        
         if ($order->status === 'paid') {
             return response()->json(['message' => 'Already paid']);
         }
 
-        if (!$order) {
-            return response()->json(['message' => 'Order not found'], 404);
-        }
 
         $transactionStatus = $payload['transaction_status'];
 
